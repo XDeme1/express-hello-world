@@ -1,6 +1,7 @@
 // Import Express.js
 const express = require("express");
 const resend = require("resend");
+const cors = require("cors");
 
 const Resend = new resend.Resend(process.env.RESEND_KEY);
 
@@ -9,6 +10,7 @@ const app = express();
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(cors());
 
 // Set port and verify_token
 const port = process.env.PORT || 3000;
