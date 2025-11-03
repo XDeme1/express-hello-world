@@ -32,8 +32,11 @@ app.post("/", (req, res) => {
     })
     .then(() => {
       console.log("Email enviado com sucesso para: " + body.to);
+      res.status(200).end();
+    })
+    .catch(() => {
+      res.status(404).end();
     });
-  res.status(200).end();
 });
 
 // Start the server
